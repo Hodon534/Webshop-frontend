@@ -10,7 +10,6 @@ import { Product } from 'src/app/model/product/product';
 })
 export class ProductService {
   private productsUrl: string = 'http://localhost:8080/api/v1/products/all';
-  //private passedProduct: Product | undefined;
   private postProduct: string = "http://localhost:8080/api/v1/products/add";
   private getSingleProduct: string = "http://localhost:8080/api/v1/products/find/id/";
 
