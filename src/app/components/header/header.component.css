@@ -1,0 +1,8 @@
+.flex-grow {
+    flex-grow: 1;
+  }
+
+  .mat-shopping-cart {
+    background-color: green;
+    color: #fff;
+}

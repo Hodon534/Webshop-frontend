@@ -1,0 +1,49 @@
+<mat-card *ngIf="product" [ngClass]="{'text-center': !fullWidthMode}">
+    <div [ngClass]="{flex: fullWidthMode}">
+        <a [routerLink]="['/product', product.id]"
+>
+        <img 
+        class="mb-1 mx-auto h-[200px] w-[200px] object-contain" 
+        [ngClass]="{'h-200px w-200px': !fullWidthMode, 'h-[360px] w-[360px]': fullWidthMode}"
+        [src]="product.image"
+        alt="product image"
+        />
+        </a>
+
+        <div class="w-full"
+        [ngClass]="{'px-8 flex flex-col justify-between': fullWidthMode}">
+            <div>
+                <h5 class="text-gray-600 px-1 pt-1">{{ product.category }}</h5>
+                <p class="truncate hover:whitespace-normal px-1 font-medium">{{ product.name }}</p>
+                <p *ngIf="fullWidthMode" class="px-1 text-justify">{{ product.description }}</p>
+            </div>
+            <div class="flex justify-between">
+                <span class="flex items-center text-black-500 pl-2 font-bold text-lg">
+                    {{ product.price | currency }}
+                </span>
+                <span class="flex items-center">
+                    <button 
+                mat-icon-button 
+                matTooltip="Warn" >
+                    <mat-icon>favorite</mat-icon>
+                  </button>
+                  <button 
+
+                  [ngClass]="{'h-200px w-200px': !fullWidthMode, 'h-[360px] w-[360px]': fullWidthMode}"
+
+                  mat-icon-button 
+                  matTooltip="Warn" 
+                  color="primary" 
+                  (click)="onAddToCart()"
+                  >
+                    <mat-icon>add_shopping_cart</mat-icon>
+                  </button>
+                </span>
+
+                
+                  
+            
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,63 @@
+<mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x">
+    <div class="items-center flex-col flex">
+        <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5">
+            <mat-grid-list cols="8" rowHeight="25px" *ngIf="product">
+                <mat-grid-tile [rowspan]=20 [colspan]=4>
+                    <img class="mb-1 mx-auto h-[500px] w-[500px] object-contain " 
+                    [src]="product.image"
+                         alt="product image"
+                    />
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=1 [colspan]=3>
+                    <p class="align-middle text-inside-grid text-gray-600">
+                        {{product.manufacturer}}
+                    </p>
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=3 [colspan]=4>
+                    <p class="font-bold text-lg text-inside-grid">
+                        {{product.name}}
+                    </p>
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=6 [colspan]=4>
+                    <p class="text-justify text-inside-grid">
+                        {{product.description}}
+                    </p>
+                </mat-grid-tile>
+
+
+                <mat-grid-tile [rowspan]=2 [colspan]=4 class="items-end">
+                    <p class="font-medium align-middle text-red-500 px-1 text-inside-grid text-3xl">
+                        {{ product.price | currency }}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=2 [colspan]=1>
+
+                    <button mat-icon-button (click)="onRemoveQuantity()">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                    <span>
+                        {{ quantity }}
+                    </span>
+                    <button mat-icon-button (click)="onAddQuantity()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=2 [colspan]=3>
+                    <button 
+                mat-fab extended 
+                (click)="onAddToCart(product)"
+                color="primary"
+                >
+                    <mat-icon>add_shopping_cart</mat-icon>
+                    Add to cart
+                  </button>
+                </mat-grid-tile>
+                <mat-grid-tile [rowspan]=2 [colspan]=4>
+                    <p class="text-gray-400 italic text-inside-grid">
+                        ID: {{product.id}}
+                    </p>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+        </div>
+    </div>
+</mat-drawer-container>

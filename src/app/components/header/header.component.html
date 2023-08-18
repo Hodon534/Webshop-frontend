@@ -1,0 +1,65 @@
+<mat-toolbar class="max-width-7xl mx-auto" color="primary">
+    <mat-toolbar-row>
+        <span class="flex items-center">
+    <button mat-button>
+    <a routerLink="home" color="secondary" class="font-bold">webshop</a>
+</button>
+<button mat-button>
+    <a routerLink="home" color="secondary">Home</a>
+</button>
+</span>
+<span class="flex items-center ml-auto">
+    <button mat-button [matMenuTriggerFor]="addingMenu" class="font-bold" >add</button>
+    <mat-menu #addingMenu="matMenu">
+        <a routerLink="add-product"><button mat-menu-item>Product</button></a>
+    </mat-menu>
+
+ 
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon
+        [matBadge]="itemsQuantity"
+        [matBadgeHidden]="!itemsQuantity"
+    matBadgeColor="warn"
+    >shopping_cart</mat-icon>
+    </button>
+</span>
+</mat-toolbar-row>
+    <mat-menu #menu="matMenu">
+        <div class="p-3 divice-y divide-solid">
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16">{{ itemsQuantity }} Items</span>
+            </div>
+            <div *ngIf="cart.items.length" class="py-3">
+                <div 
+                *ngFor="let item of cart.items"
+                class="flex justify-between font-light mb-2">
+                {{ item.name }} x {{ item.quantity }}
+                    <span class="font-bold">{{ item.price | currency }}</span>
+                </div>
+            </div>
+            <div class="flex justify-between py-3 font-light">
+                Total:
+                <span class="font-bold"> {{ getTotal(cart.items) | currency }}</span>
+            </div>
+            <div class="pt-3 flex justify-between">
+                
+                <button 
+                (click)="clearCart()"
+                mat-mini-fab 
+                matTooltip="clear cart" 
+                color="warn"
+                >
+                                    <mat-icon>remove_shopping_cart</mat-icon>
+                  </button>
+                <button 
+                routerLink="cart"
+                mat-mini-fab 
+                matTooltip="go to shopping cart" 
+                color="shopping-cart"
+                >
+                    <mat-icon>shopping_cart</mat-icon>
+                  </button>           
+            </div>
+        </div>
+    </mat-menu>
+</mat-toolbar>
