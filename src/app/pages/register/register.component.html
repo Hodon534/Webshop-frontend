@@ -1,0 +1,145 @@
+<mat-drawer-container 
+[autosize]="true"
+class="min-h-full max-w-7xl mx-auto border-x" >
+<div class="items-center justify-center flex-col flex">
+<form 
+class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5" 
+>
+    <div class="">
+            <mat-form-field class="w-full block tracking-wide">
+            <mat-label>Username</mat-label>
+            <input 
+            type="email" 
+            matInput 
+            placeholder="ex. jsmith@gmail.com" 
+            required 
+            [(ngModel)]="request.username"
+            name="username"
+            >
+          </mat-form-field>
+    </div>
+    <div class="">
+            <mat-form-field class="w-full block tracking-wide">
+            <mat-label>Password</mat-label>
+            <input 
+            type="password" 
+            matInput 
+            placeholder="*******" 
+            required 
+            [(ngModel)]="request.password"
+            name="password"
+            >
+          </mat-form-field>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 md:mb-0 pr-1">
+            <mat-form-field class="appearance-none block w-full">
+                <mat-label>First Name</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                placeholder="ex. John" 
+                required 
+                [(ngModel)]="request.firstName" 
+                name="firstName"
+                >
+            </mat-form-field> 
+            </div>
+            <div class="w-full md:w-1/2 pl-1" >
+                <mat-form-field class="appearance-none block w-full">
+                    <mat-label>Last Name</mat-label>
+                    <input 
+                    type="text" 
+                    matInput 
+                    placeholder="ex. Smith" 
+                    required 
+                    [(ngModel)]="request.lastName" 
+                    name="lastName"
+                    >
+            </mat-form-field> 
+        </div>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 md:mb-0 pr-1">
+            <mat-form-field class="appearance-none block w-full">
+                <mat-label>Street</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                placeholder="ex. 17 Avenue" 
+                required 
+                [(ngModel)]="request.address.street" 
+                name="address.street"
+                >
+            </mat-form-field> 
+            </div>
+            <div class="w-full md:w-1/2 pl-1" >
+                <mat-form-field class="appearance-none block w-full">
+                    <mat-label>Zip Code</mat-label>
+                    <input 
+                    type="text" 
+                    matInput 
+                    placeholder="ex. 30-330" 
+                    required 
+                    [(ngModel)]="request.address.zipCode" 
+                    name="address.zipCode"
+                    >
+            </mat-form-field> 
+        </div>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 md:mb-0 pr-1">
+            <mat-form-field class="appearance-none block w-full">
+                <mat-label>City</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                placeholder="ex. Warsaw" 
+                required 
+                [(ngModel)]="request.address.city" 
+                name="address.city"
+                >
+            </mat-form-field> 
+            </div>
+            <div class="w-full md:w-1/2 pl-1" >
+                <mat-form-field class="appearance-none block w-full">
+                    <mat-label>Country</mat-label>
+                    <input 
+                    type="text" 
+                    matInput 
+                    placeholder="ex. Poland" 
+                    required 
+                    [(ngModel)]="request.address.country" 
+                    name="address.country"
+                    >
+            </mat-form-field> 
+        </div>
+    </div>
+    <div class="">
+        <mat-form-field class="w-full block tracking-wide">
+        <mat-label>Phone Number</mat-label>
+        <input 
+        type="number" 
+        matInput 
+        placeholder="ex. 123456789" 
+        required 
+        [(ngModel)]="request.phoneNumber"
+        name="phoneNumber"
+        >
+      </mat-form-field>
+</div>
+      <div class="justify-center flex">
+        <button 
+                mat-fab extended 
+                color="primary"
+                type="submit"
+                (click)="onRegister()"
+
+                >
+                    <mat-icon>send</mat-icon>
+                    Register
+                  </button>
+    </div>
+</form>
+</div>
+</mat-drawer-container>

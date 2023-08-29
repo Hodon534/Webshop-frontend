@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cart, CartItem } from '../model/cart.model';
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../model/product/product';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Cart, CartItem } from '../model/models/cart.model';
+import { Product } from '../model/models/product.model';
 
 @Injectable({
   providedIn: 'root'

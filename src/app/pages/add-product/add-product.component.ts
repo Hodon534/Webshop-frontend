@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Categories, getAllEnumStringValues } from 'src/app/model/enums/categories';
-import { Product } from 'src/app/model/product/product';
-import { ProductService } from 'src/app/service/product-service/product-service';
+import { Manufacturer } from 'src/app/model/models/manufacturer.model';
+import { Product } from 'src/app/model/models/product.model';
+import { ManufacturerService } from 'src/app/service/manufacturer.service';
+import { ProductService } from 'src/app/service/product.service';
+
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html'
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnInit {
   product: Product = new Product();
   categories: string[] = getAllEnumStringValues(Categories);
+  manufacturers: Manufacturer[] = [];
+  manufacturersData: { [key: string]: number } = {};
+  selectedManufacturerName: string = '';
+  selectedManufacturerId: number | undefined;
   
-  constructor( private productService: ProductService) {
+  constructor( private productService: ProductService, private manufacturerService: ManufacturerService) {
   }
   
+  ngOnInit(): void {
+    this.getAllManufacturers();
+  }
+
   onSubmit() {
-    console.log(this.product);
+    this.selectedManufacturerId = this.manufacturersData[this.selectedManufacturerName];
+    this.product.manufcturerId = this.selectedManufacturerId;
     this.productService.addProduct(this.product).subscribe(
       (response) => {
         console.log("Product added successfully:", response);
@@ -26,6 +38,21 @@ export class AddProductComponent {
       }
     );
   }
+
+  getAllManufacturers() {
+    this.manufacturerService.findAll().subscribe((manufacturers: Manufacturer[]) => {
+      this.manufacturers = manufacturers;
+      this.manufacturersData = {};
+      manufacturers.forEach((manufacturer) => {
+        this.manufacturersData[manufacturer.name] = manufacturer.id;
+      });
+    });
+  }
+
+  onManufacturerNameSelected() {
+    this.selectedManufacturerId = this.manufacturersData[this.selectedManufacturerName];
+  }
+  
 
 
 }

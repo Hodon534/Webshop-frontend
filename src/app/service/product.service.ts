@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { Cart } from 'src/app/model/cart.model';
-import { Product } from 'src/app/model/product/product';
+import { Cart } from '../model/models/cart.model';
+import { Product } from '../model/models/product.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,6 @@ export class ProductService {
     
     public addProduct(product: Product | undefined): Observable<Product> {
       this._snackBar.open("new product has been added to database", "Ok", { duration: 5000 });
-      this.http.post<Cart>('http://localhost:8080/api/v1/cart/add', null);
       return this.http.post<Product>(this.postProduct, product);
     }
 

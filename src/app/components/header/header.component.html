@@ -9,10 +9,32 @@
 </button>
 </span>
 <span class="flex items-center ml-auto">
-    <button mat-button [matMenuTriggerFor]="addingMenu" class="font-bold" >add</button>
+    <button mat-button [matMenuTriggerFor]="addingMenu" class="font-bold">add</button>
     <mat-menu #addingMenu="matMenu">
         <a routerLink="add-product"><button mat-menu-item>Product</button></a>
+        <a routerLink="add-manufacturer"><button mat-menu-item>Manufacturer</button></a>
     </mat-menu>
+    <button mat-icon-button
+    matTooltip="sign out"
+    >
+        <mat-icon
+        
+    >logout</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="sign in /sign up"
+    [matMenuTriggerFor]="accMenu"
+    >
+        <mat-icon
+    >account_circle</mat-icon>
+    </button>
+
+    <mat-menu #accMenu="matMenu">
+        <a routerLink="login"><button mat-menu-item>Login</button></a>
+        <a routerLink="register"><button mat-menu-item>Register</button></a>
+        <a routerLink="dashboard"><button mat-menu-item>Dashboard</button></a>
+    </mat-menu>
+    
 
  
     <button mat-icon-button [matMenuTriggerFor]="menu">

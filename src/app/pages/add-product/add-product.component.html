@@ -4,7 +4,6 @@ class="min-h-full max-w-7xl mx-auto border-x" >
 <div class="items-center justify-center flex-col flex">
 <form 
 class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5" 
-(ngSubmit)="onSubmit()" 
 >
     <div class="">
             <mat-form-field class="w-full block tracking-wide">
@@ -23,14 +22,18 @@ class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5"
         <div class="w-full md:w-1/2 md:mb-0 pr-1">
             <mat-form-field class="appearance-none block w-full">
                 <mat-label>Manufacturer</mat-label>
-                <input 
-                type="text" 
-                matInput 
-                placeholder="ex. Samsung" 
-                required 
-                [(ngModel)]="product.manufacturer" 
-                name="manufacturer"
-                >
+                <mat-select
+            required
+            [(ngModel)]="product.manufacturer"
+            name="manufacturer"
+            >
+            <mat-option 
+            *ngFor="let manufacturer of manufacturers"
+            [value]="manufacturer.name" 
+            >
+            {{ manufacturer.name }}
+          </mat-option>
+                </mat-select>
             </mat-form-field> 
             </div>
             <div class="w-full md:w-1/2 pl-1" >
@@ -100,8 +103,17 @@ class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5"
         >
       </textarea>
       </mat-form-field>
-      <div class="justify-center flex-col flex">
-      <button mat-flat-button color="primary" type="submit">Add Product</button>
+      <div class="justify-center flex">
+        <button 
+                mat-fab extended 
+                color="primary"
+                type="submit"
+                (click)="onSubmit()"
+
+                >
+                    <mat-icon>send</mat-icon>
+                    Add Product
+                  </button>
     </div>
 </form>
 </div>

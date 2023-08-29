@@ -24,15 +24,15 @@
                 <span class="flex items-center">
                     <button 
                 mat-icon-button 
-                matTooltip="Warn" >
-                    <mat-icon>favorite</mat-icon>
+                matTooltip="add to favourite" >
+                    <mat-icon>favorite_border</mat-icon>
                   </button>
                   <button 
 
                   [ngClass]="{'h-200px w-200px': !fullWidthMode, 'h-[360px] w-[360px]': fullWidthMode}"
 
                   mat-icon-button 
-                  matTooltip="Warn" 
+                  matTooltip="add to cart" 
                   color="primary" 
                   (click)="onAddToCart()"
                   >

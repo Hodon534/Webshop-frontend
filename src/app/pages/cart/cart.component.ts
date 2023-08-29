@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cart, CartItem } from 'src/app/model/cart.model';
+import { Cart, CartItem } from 'src/app/model/models/cart.model';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({

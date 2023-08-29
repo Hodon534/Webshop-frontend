@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component'
-import { ProductService } from './service/product-service/product-service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -32,6 +31,18 @@ import { MatSelectModule}  from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './pages/cart/cart.component';
 import { CartService } from './service/cart.service';
+import { ProductService } from './service/product.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AddManufacturerComponent } from './pages/add-manufacturer/add-manufacturer.component';
+import { ManufacturerService } from './service/manufacturer.service';
+import { UserService } from './service/user.service';
+import { OverviewComponent } from './pages/overview/overview.component';
+import { OrderService } from './service/order.service';
+import { SideNavComponent } from './pages/overview/components/side-nav/side-nav/side-nav.component';
+import { DashboardComponent } from './pages/overview/pages/dashboard/dashboard.component';
+import { OrdersComponent } from './pages/overview/pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +54,14 @@ import { CartService } from './service/cart.service';
     ProductsHeaderComponent,
     ProductPageComponent,
     AddProductComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddManufacturerComponent,
+    OverviewComponent,
+    SideNavComponent,
+    DashboardComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +83,10 @@ import { CartService } from './service/cart.service';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
   ],
-  providers: [ProductService, CartService],
+  providers: [ProductService, CartService, ManufacturerService, UserService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
