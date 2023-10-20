@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Manufacturer } from 'src/app/model/models/manufacturer.model';
 import { Product } from 'src/app/model/models/product.model';
 import { CartService } from 'src/app/service/cart.service';
+import { ManufacturerService } from 'src/app/service/manufacturer.service';
 import { ProductService } from 'src/app/service/product.service';
 
 const ROWS_HEIGHT: { [id: number]: number} = { 1: 400, 3: 335, 4: 350 };
@@ -14,12 +16,13 @@ export class HomeComponent implements OnInit {
   cols = 3;
   rowHeight = ROWS_HEIGHT[this.cols];
   category: string | undefined;
+  //manufacturer: string | undefined;
   count = '12';
   allProducts: Product[] | undefined;
   filteredProducts: Product[] | undefined;
   productsSubscription: Subscription | undefined;
 
-  constructor(private productService: ProductService, private cartService: CartService) {
+  constructor(private productService: ProductService, private cartService: CartService, private manufacturerService: ManufacturerService) {
 
   }
 

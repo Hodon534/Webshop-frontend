@@ -13,7 +13,14 @@ export class UserService {
   loggedUserUrl: string = "http://localhost:8080/api/v1/users/logged";
   loggedUser: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
+  // start test
+
+
+
+  // end test
 
   login(user: any): Observable<any> {
     const body = new URLSearchParams();
@@ -21,10 +28,12 @@ export class UserService {
     body.set('password', user.password);
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
+      //'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
+
     });
 
-    return this.http.post(this.loginUrl, user);
+    return this.http.post(this.loginUrl, body);
   }
 
   register(request: RegistrationRequest): Observable<RegistrationRequest> {

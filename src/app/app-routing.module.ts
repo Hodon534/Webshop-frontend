@@ -7,7 +7,6 @@ import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AddManufacturerComponent } from './pages/add-manufacturer/add-manufacturer.component';
-import { OverviewComponent } from './pages/overview/overview.component';
 import { OrdersComponent } from './pages/overview/pages/orders/orders.component';
 import { DashboardComponent } from './pages/overview/pages/dashboard/dashboard.component';
 

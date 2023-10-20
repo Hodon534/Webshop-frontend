@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component'
 
@@ -43,6 +43,7 @@ import { OrderService } from './service/order.service';
 import { SideNavComponent } from './pages/overview/components/side-nav/side-nav/side-nav.component';
 import { DashboardComponent } from './pages/overview/pages/dashboard/dashboard.component';
 import { OrdersComponent } from './pages/overview/pages/orders/orders.component';
+
 
 @NgModule({
   declarations: [

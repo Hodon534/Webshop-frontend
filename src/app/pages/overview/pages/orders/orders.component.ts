@@ -5,7 +5,14 @@ import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-orders',
-  templateUrl: './orders.component.html'
+  templateUrl: './orders.component.html',
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class OrdersComponent implements OnInit {
   orders: Order[] = [
@@ -43,8 +50,8 @@ export class OrdersComponent implements OnInit {
       userId: 2
     } */
   ];
-
-  displayedColumns = ['id', 'createdAt', 'total', 'status'];
+  expandedOrder: any | null = null;
+  columnsToDisplay = ['id', 'createdAt', 'total', 'status'];
 
    constructor(private orderService: OrderService) {}
 
@@ -59,5 +66,6 @@ export class OrdersComponent implements OnInit {
       this.orders = orders;
     });
   }  
+
 
 }

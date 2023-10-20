@@ -9,6 +9,20 @@
             (click)="onShowCategory(category)">
                 {{ category }}
         </mat-list-option>
+        
     </mat-selection-list>
-</mat-expansion-panel>
+<!-- </mat-expansion-panel>
+<mat-expansion-panel *ngIf="manufacturers">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            MANUFACTURERS
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let manufacturer of manufacturers" [value]="manufacturer">
+                {{ manufacturer }}
+        </mat-list-option>
+        
+    </mat-selection-list>
+</mat-expansion-panel> -->
 

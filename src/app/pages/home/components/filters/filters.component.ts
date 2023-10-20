@@ -10,6 +10,10 @@ export class FiltersComponent {
   @Output() showCategory = new EventEmitter<string>();
   showAllCategory: string = "show all";
   categories: string[] = getAllEnumStringValues(Categories);
+/*   @Output() showManufacturer = new EventEmitter<string>();
+  showAllManufacturers: string = "show all";
+  manufacturers: string[] = getAllEnumStringValues(Categories); */
+
 
   ngOnInit():void {
     this.categories.unshift(this.showAllCategory);
