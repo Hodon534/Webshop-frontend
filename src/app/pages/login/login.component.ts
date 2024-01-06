@@ -34,14 +34,14 @@ export class LoginComponent {
       (response) => {
         this._snackBar.open("You have been successfully logged in", "Ok", { duration: 5000 });
         this.router.navigate(['/']);
-        this.afterLogin();
+        //this.afterLogin();
       },
       (error) => {
       }
     );
   } 
 
-  afterLogin()  {
+  /* afterLogin()  {
     this.userService.getLoggedInUser().subscribe(
       (user) => {
           console.log(user);
@@ -50,6 +50,6 @@ export class LoginComponent {
           console.error('Error fetching user:', error);
       }
   );
-  }
+  } */
 
 }
